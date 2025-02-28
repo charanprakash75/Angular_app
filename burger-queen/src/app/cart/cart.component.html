@@ -1,0 +1,42 @@
+<div class="container" style="margin-top: 1em;">
+    @if(subTotal){
+    @for(item of service.burgerList(); track item){
+    @if(item.quantity > 0){
+    <div class="cart-item">
+        <img src="../../assets/{{item.image}}.jpeg" [alt]="item.name" class="cart-item-image" />
+        <div class="cart-details">
+            <h4>{{ item.name }}</h4>
+            <p class="price">{{ item.price }}</p>
+        </div>
+        <div class="quantity-controls">
+            <button (click)="updateQuantity(item.id, -1)">-</button>
+            <span>{{ item.quantity }}</span>
+            <button (click)="updateQuantity(item.id, 1)">+</button>
+        </div>
+        <button class="remove-btn top-0 end-0 remove-styles" (click)="removeItem(item.id)">&#10005;</button>
+    </div>
+    }
+    }
+
+    <div class="cart-summary">
+        <div class="summary-row">
+            <h4>Subtotal</h4>
+            <h4>{{ subTotal }}</h4>
+        </div>
+        <div class="summary-row">
+            <h4>Discount</h4>
+            <h4>{{ discount }}</h4>
+        </div>
+        <div class="summary-row total">
+            <h4>Total</h4>
+            <h4>{{ total }}</h4>
+        </div>
+        <button class="buy-now-btn" (click)="buyNow()">Buy Now</button>
+    </div>
+    }
+    @else {
+    <div class="d-flex vh-100 justify-content-center align-items-center text-center">
+        <h4 class="fw-bold">Your cart is empty. Add some delicious burgers.</h4>
+    </div>
+    }
+</div>

@@ -1,0 +1,55 @@
+.home-page {
+  padding: 10px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.search-container {
+  position: relative;
+  margin: 15px 0;
+
+  input {
+    width: 100%;
+    padding: 8px 35px 8px 10px;
+    border-radius: 8px;
+  }
+
+  .search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.burger-card {
+  border-color: #ffc107;
+  border-width: 2px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* Responsive Grid */
+@media (max-width: 768px) {
+  .col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .col-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}

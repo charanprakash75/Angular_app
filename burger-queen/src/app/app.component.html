@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-warning position-relative">
+    <span class="back-button position-absolute start-0 ps-3" (click)="goBack()">
+        <i class="fas fa-arrow-left"></i>
+    </span>
+    <a class="navbar-brand mx-auto" href="#">{{currentPage}}</a>
+    <span class="front-button position-absolute end-0 pe-3" (click)="goForward()">
+        <i class="fas fa-arrow-right"></i>
+    </span>
+</nav>
+<div style="padding-bottom: 2em;">
+    <router-outlet />
+</div>
+<footer class="footer">
+    <div class="footer-icons">
+        <i class="fa-solid fa-home cursor" routerLink="/"></i>
+        <i class="fas fa-th-large"></i>
+        <i class="fas fa-history"></i>
+        <i class="fas fa-shopping-cart cursor" routerLink="/cart"></i>
+        <i class="fas fa-user"></i>
+    </div>
+</footer>
