@@ -1,0 +1,16 @@
+<div class="text-center mt-4" [formGroup]="form">
+    <button class="btn btn-primary me-2" (click)="reset()">Reset</button>
+    <button class="btn btn-primary" (click)="addCounter()">Add</button>
+    <div formArrayName="counters">
+        @for(count of counters.controls; track count; let i= $index){
+        <div [formGroupName]="i" class="d-flex justify-content-center align-items-center mt-3 gap-2">
+            <span class="badge bg-primary fs-5 px-3 py-2">
+                {{ count.get('count')?.value }}
+            </span>
+            <button class="btn btn-secondary" (click)="increment(i)">Increment</button>
+            <button class="btn btn-secondary" (click)="decrement(i)">Decrement</button>
+            <button class="btn btn-danger" (click)="removeCounter(i)">Delete</button>
+        </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Type city name" [(ngModel)]="cityName">
+    <button class="btn btn-outline-secondary" (click)="addCity()">+</button>
+</div>
+
+
+<div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+<h6 class="text-muted">Recent locations</h6>
+<ul class="list-group mb-3">
+    <li *ngFor="let city of recentCities" class="list-group-item d-flex justify-content-between align-items-center"
+        (click)="selectCity(city)">
+        {{ city.name }} - {{ city.temp }}C {{ city.weather }}
+        <span>
+            <img [src]="city.iconUrl" width="30" class="me-2" />
+            <button class="btn btn-sm btn-light me-1" (click)="refreshCity(city); $event.stopPropagation()">⟳</button>
+            <button class="btn btn-sm btn-light" (click)="removeCity(city); $event.stopPropagation()">✖</button>
+        </span>
+    </li>
+</ul>
+
+<button class="btn btn-outline-secondary btn-sm w-100" (click)="clearCities()">Clear</button>

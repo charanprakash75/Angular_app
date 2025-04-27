@@ -1,0 +1,24 @@
+<div *ngIf="selectedCity">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3>{{ selectedCity.name }}</h3>
+        <button class="btn btn-sm btn-outline-secondary" (click)="refreshForecast()">⟳</button>
+    </div>
+
+    <div class="d-flex align-items-center mb-3">
+        <img [src]="selectedCity.iconUrl" width="80" class="me-3" />
+        <div>
+            <h4>{{ selectedCity.temp }}C</h4>
+            <p>{{ selectedCity.weather }}</p>
+            <p>Wind: {{ selectedCity.wind }} ms {{ selectedCity.windDeg }}°</p>
+            <p>Pressure: {{ selectedCity.pressure }}</p>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between">
+        <div *ngFor="let day of forecast" class="text-center">
+            <div>{{ day.date | date: 'd' }}<br>{{ day.date | date: 'EEE' }}</div>
+            <img [src]="day.iconUrl" width="40" />
+            <div>{{ day.temp }}C</div>
+        </div>
+    </div>
+</div>
